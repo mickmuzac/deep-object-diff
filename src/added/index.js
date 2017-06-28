@@ -8,7 +8,7 @@ const addedDiff = (lhs, rhs) => {
   const r = properObject(rhs);
 
   return Object.keys(r).reduce((acc, key) => {
-    if (l.hasOwnProperty(key)) {
+    if (l.hasOwnProperty(key) && key !== 'private') {
       const difference = addedDiff(l[key], r[key]);
 
       if (isObject(difference) && isEmpty(difference)) return acc;
